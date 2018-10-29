@@ -1,7 +1,0 @@
-{
-  "name": "StartAgain",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
