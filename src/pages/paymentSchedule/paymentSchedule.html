@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Payment Schedule</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card (click)=openModal(breakUpMod.year) *ngFor="let breakUpMod of breakUpYear">
+    <ion-card-header style="color: white">
+      {{breakUpMod.year}}
+       <ion-icon name="ios-arrow-forward" style="float: right;"></ion-icon>
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>Principal</ion-label>
+        <ion-label class="alignme">₹{{breakUpMod.principal | number:'1.2-2'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Interest</ion-label>
+        <ion-label class="alignme">₹{{breakUpMod.interest | number:'1.2-2'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>EMI</ion-label>
+        <ion-label class="alignme">₹{{breakUpMod.emi | number:'1.2-2'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Closing Balance</ion-label>
+        <ion-label class="alignme">₹{{breakUpMod.closingBalance | number:'1.2-2'}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

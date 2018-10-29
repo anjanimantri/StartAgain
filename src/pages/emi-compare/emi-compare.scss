@@ -1,0 +1,19 @@
+page-emi-compare {
+.required:after {content: " *"; color: red;}
+
+.textStyle{
+    color: color($colors, primary);
+}
+
+.seperatorCol{
+    padding-right: 20px;
+    border-right: 0.02px solid gray;
+}
+.inputLast{
+    border-bottom: 0.02px solid #E0E0E0;
+}
+#styleHeader{
+    color: color($colors, primary); 
+    font-size: 16px;
+}
+}

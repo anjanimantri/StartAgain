@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Calculate No. of Years</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating  class="required">Principal (₹)</ion-label>
+      <ion-input [(ngModel)]="principalFormatted" (change)='onChangePrincipal($event.target.value)'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating  class="required">Interest (₹)</ion-label>
+      <ion-input [(ngModel)]="interestFormatted" (change)='onChangeInterest($event.target.value)'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating  class="required">Interest Rate (%)</ion-label>
+      <ion-input type="number" [(ngModel)]="rate"></ion-input>
+    </ion-item>
+
+    <ion-item [hidden]="isCompound">
+      <ion-label>Frequency</ion-label>
+      <ion-select [(ngModel)]="frequency">
+        <ion-option value="monthly" selected>Monthly</ion-option>
+        <ion-option value="quaterly">Quaterly</ion-option>
+        <ion-option value="halfYearly">Half Yearly</ion-option>
+        <ion-option value="yearly">Yearly</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button round block (click)="calculateYears()">Calculate</button>
+
+  <ion-list [hidden]="isCalculate" style="margin-top: 16px">
+    <ion-item no-lines color=light>
+      <ion-label color="primary" item-start text-wrap>No. of Years/Months :</ion-label>
+      <ion-label item-end color="primary" class="alignme">{{years}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

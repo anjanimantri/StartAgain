@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Advance Home Loan Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating class="required">Flat value (₹)</ion-label>
+      <ion-input [(ngModel)]="flatValueFormatted" (change)='onChangeFlat($event.target.value)'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating class="required">Gross Monthly Income (₹)</ion-label>
+      <ion-input [(ngModel)]="montlyIncomeFormatted" (change)='onChangeIncome($event.target.value)'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating class="required">Rate of Interest (%)</ion-label>
+      <ion-input type="number" [(ngModel)]="rateOfInterest"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="required">Loan Tenure </ion-label>
+      <ion-input type="number" [(ngModel)]="loanTenure"></ion-input>
+      <ion-select [(ngModel)]="tenure" item-end>
+        <ion-option value="years" selected>Years</ion-option>
+        <ion-option value="months">Months</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Existing monthly EMI if any (₹)</ion-label>
+      <ion-input [(ngModel)]="monthlyEMIFormatted" (change)='onChangeEMI($event.target.value)'></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button round block (click)="calculateLoan()">Calculate</button>
+
+  <ion-list [hidden]="isCalculate" style="margin-top: 16px">
+    <ion-item no-lines color=light>
+      <ion-label color="primary" item-start>EMI :</ion-label>
+      <ion-label item-end color="primary" class="alignme">₹ {{EMI | number:'1.2-2'}}</ion-label>
+    </ion-item>
+
+    <ion-item no-lines color=light>
+      <ion-label color="primary" item-start text-wrap>Loan amount :</ion-label>
+      <ion-label item-end color="primary" class="alignme">₹ {{loanAmount | number:'1.2-2'}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <p class="impNote">
+    &#9642; Maximum period for which bank can lend Loan is upto 30 years. <br> &#9642; For Loan below 30 lakhs, 90% of agreement
+    value is sanctioned by bank. <br> &#9642; For Loan 31-75 lakhs, 80% of agreement value is sanctioned by bank. <br> &#9642;
+    For Loan above 75 lakhs, 75% of agreement value is sanctioned by bank.
+  </p>
+
+
+</ion-content>

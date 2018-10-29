@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
+    <ion-title>Subsidy Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+     <ion-item>
+      <ion-label floating class="required">Loan Amount (₹)</ion-label>
+      <ion-input [(ngModel)]="loanAmountFormatted" (change)='onChangeLoan($event.target.value)'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="required">Loan Tenure</ion-label>
+      <ion-input type="number" [(ngModel)]="loanTenure"></ion-input>
+      <ion-select [(ngModel)]="tenure" item-end>
+        <ion-option value="years" selected>Years</ion-option>
+        <ion-option value="months">Months</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  
+  <button ion-button round block (click)="calculateSubsidy()">Calculate</button>
+
+   <ion-list [hidden] = "isCalculate" style="margin-top: 16px">
+   <!-- <ion-item no-lines color=light>
+      <ion-label item-start>EMI :</ion-label>
+      <ion-label item-end color="primary" class="alignme">₹ {{EMI | number:'1.2-2'}}</ion-label>
+    </ion-item> -->
+
+     <ion-item no-lines color=light>
+      <ion-label item-start text-wrap color="primary" >Subsidy :</ion-label>
+      <ion-label item-end class="alignme" color="primary" >₹ {{subsidy | number:'1.2-2'}}</ion-label>
+    </ion-item>
+ </ion-list>
+
+ <p class="impNote">
+      &#9656; To avail maximum subsidy of {{minSubsidy}} lakhs - <br>
+      &nbsp; &nbsp; &#9656; Minimum loan amount - ₹ {{minLoan}} lakhs <br>
+      &nbsp; &nbsp; &#9656; Minimum loan tenure - 20 years <br>
+      If above criteria is not met, subsidy amount will proportionately reduce.</p>
+
+</ion-content>

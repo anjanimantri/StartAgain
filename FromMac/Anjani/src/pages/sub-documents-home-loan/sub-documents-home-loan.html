@@ -1,0 +1,36 @@
+<!--
+  Generated template for the SubDocumentsHomeLoanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{category}}</ion-title>
+  </ion-navbar>
+ <ion-grid ion-border>
+    <ion-row class="customBorder">
+      <ion-col col-3>Nature</ion-col>
+      <ion-col col-3>Documents</ion-col>
+      <ion-col col-3>Applicant</ion-col>
+      <ion-col col-3>Co-Applicant</ion-col>
+    </ion-row>
+ </ion-grid>
+</ion-header>
+<ion-content>
+  <ion-grid ion-border>
+    <ion-row class="FirstRow">
+      <ion-col col-3>{{identityProof.nature}}</ion-col>
+      <ion-col col-3>{{identityProof.documents}}</ion-col>
+      <ion-col col-3>{{identityProof.applicant}}</ion-col>
+      <ion-col col-3>{{identityProof.coApplicant}}</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let doc of documentsList">
+      <ion-col col-3>{{doc.nature}}</ion-col>
+      <ion-col col-3>{{doc.documents}}</ion-col>
+      <ion-col col-3>{{doc.applicant}}</ion-col>
+      <ion-col col-3>{{doc.coApplicant}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

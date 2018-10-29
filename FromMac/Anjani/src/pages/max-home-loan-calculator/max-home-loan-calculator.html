@@ -1,0 +1,36 @@
+<!--
+  Generated template for the MaxHomeLoanCalculatorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Maximum Home Loan Calculator</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating class="required">Flat value (₹)</ion-label>
+      <ion-input [(ngModel)]="flatValueFormatted" (change)='onChangePrice($event.target.value)'></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button round block (click)="calculateLoan()">Calculate</button>
+
+ <p class="impNote">
+      &#9656; Rate of Interest charged by various bankers range is between 8.35% - 14% depending upon profile of the customer
+ </p>
+
+  <ion-list [hidden]="isCalculate" style="margin-top: 16px">
+    <ion-item no-lines color=light>
+      <ion-label color="primary" item-start text-wrap>Loan Amount Bank can fund :</ion-label>
+      <ion-label item-end color="primary" class="alignme">₹ {{loanAmount | number:'1.2-2'}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,14 @@
+page-pmay-writeup {
+ion-col{
+    border-right: 0.02px solid gray;
+    border-bottom: 0.02px solid gray;
+}
+ion-row{
+    border-right: 0.02px solid gray;
+    border-left: 0.02px solid gray;
+}
+.customBorder{
+    background: color($colors, primary);
+    color: white;
+}
+}

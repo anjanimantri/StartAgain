@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      Segments
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="typeLoan">
+      <ion-segment-button value="homeLoan" ng-selected="selected">
+        Home Loan
+      </ion-segment-button>
+      <ion-segment-button value="personalLoan">
+        Personal Loan
+      </ion-segment-button>
+      <ion-segment-button value="carLoan">
+        Car Loan
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="typeLoan">
+    <ion-list *ngSwitchCase="'homeLoan'">
+
+      <ion-item>
+        <ion-label floating class="required">Home Loan Amount (₹)</ion-label>
+        <ion-input [(ngModel)]="homeLoanAmountFormatted" (change)='onChangeHome($event.target.value)'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="required">Home Loan Interest (%)</ion-label>
+        <ion-input type="number" [(ngModel)]="homeLoanInterest"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="required">Start Date</ion-label>
+        <ion-datetime displayFormat="YYYY MMM" [(ngModel)]="homeStartDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="required">Loan Tenure</ion-label>
+        <ion-input type="number" [(ngModel)]="homeLoanTenure"></ion-input>
+        <ion-select [(ngModel)]="homeTenure" item-end>
+          <ion-option value="years" selected>Years</ion-option>
+          <ion-option value="months">Months</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'personalLoan'">
+      <ion-item>
+        <ion-label floating class="required">Personal Loan Amount (₹)</ion-label>
+        <ion-input [(ngModel)]="personalLoanAmountFormatted" (change)='onChangePersonal($event.target.value)'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="required">Personal Loan Interest (%)</ion-label>
+        <ion-input type="number" [(ngModel)]="personalLoanInterest"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="required">Start Date</ion-label>
+        <ion-datetime displayFormat="YYYY MMM" [(ngModel)]="personalStartDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="required">Loan Tenure</ion-label>
+        <ion-input type="number" [(ngModel)]="personalLoanTenure"></ion-input>
+        <ion-select [(ngModel)]="personalTenure" item-end>
+          <ion-option value="years" selected>Years</ion-option>
+          <ion-option value="months">Months</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'carLoan'">
+      <ion-item>
+        <ion-label floating class="required">Car Loan Amount (₹)</ion-label>
+        <ion-input [(ngModel)]="carLoanAmountFormatted" (change)='onChangeCar($event.target.value)'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="required">Car Loan Interest (%)</ion-label>
+        <ion-input type="number" [(ngModel)]="carLoanInterest"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating class="required">Start Date</ion-label>
+        <ion-datetime displayFormat="YYYY MMM" [(ngModel)]="carStartDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="required">Loan Tenure</ion-label>
+        <ion-input type="number" [(ngModel)]="carLoanTenure"></ion-input>
+        <ion-select [(ngModel)]="carTenure" item-end>
+          <ion-option value="years" selected>Years</ion-option>
+          <ion-option value="months">Months</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button round block (click)="calculateEmi()">Calculate</button>
+    <p class="impNote" *ngSwitchCase="'personalLoan'">
+      &#9656; Maximum period for which bank can lend Personal Loan is between 8 - 10 years
+    </p>
+    <p class="impNote" *ngSwitchCase="'homeLoan'">
+      &#9656; Maximum period for which bank can lend Home Loan is upto 30 years
+    </p>
+    <p class="impNote" *ngSwitchCase="'carLoan'">
+      &#9656; Maximum period for which bank can lend Car Loan is 7 years
+    </p>
+    <p class="impNote" *ngSwitchCase="'personalLoan'">
+      &#9656; Rate of Interest charged by various bankers range is between 12% - 18% depending upon profile of the customer
+    </p>
+     <p class="impNote" *ngSwitchCase="'homeLoan'">
+      &#9656; Rate of Interest charged by various bankers range is between 8.35% - 14% depending upon profile of the customer
+    </p>
+     <p class="impNote" *ngSwitchCase="'carLoan'">
+      &#9656; Rate of Interest charged by various bankers range is between 8.35% - 14% depending upon profile of the customer
+    </p>
+  </div>
+</ion-content>

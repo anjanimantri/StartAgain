@@ -1,0 +1,54 @@
+<!--
+  Generated template for the AskQuestionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{type}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email Id</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-label [hidden]="isEmailValid" style="color:red;">Please enter valid Email Id.</ion-label>
+
+    <ion-item>
+      <ion-label floating>Mobile no.</ion-label>
+      <ion-input type="tel" maxLength="10" [(ngModel)]="mobile"></ion-input>
+    </ion-item>
+
+    <ion-label [hidden]="isMobileValid" style="color:red;">Please enter valid Mobile No.</ion-label>
+
+    <ion-item [hidden]="isQuestion">
+      <ion-label floating>Question</ion-label>
+      <ion-textarea [(ngModel)]="question" maxLength="500" rows="3"></ion-textarea>
+    </ion-item>
+
+    <ion-label [hidden]="isQuestionValid" style="color:red;">Please ask Question.</ion-label>
+
+    <button ion-button round block (click)="sendEmail()" style="margin-top: 20px;">{{type}}</button>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer style="background: red; color: white; padding: 10px;" [hidden]="isOffline">
+  You are offline, Please try again later!
+</ion-footer>
+<ion-footer style="background: green; color: white; padding: 10px;" [hidden]="isOnline">
+  Thank you for your {{tag}}! Our team will revert shortly.
+</ion-footer>

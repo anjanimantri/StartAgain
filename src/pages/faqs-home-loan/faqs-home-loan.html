@@ -1,0 +1,27 @@
+<!--
+  Generated template for the FaqsHomeLoanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FAQ's on {{type}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item item-start *ngFor="let item of items" (click)="expandItem(item)" text-wrap>
+        <h3 class='questionStyle'>{{item.question}}</h3>
+        <br/>
+        <expandable-fa-qs [expanded]="item.expanded">
+           <h3 *ngFor="let ans of item.answer">{{ans}}</h3>
+        </expandable-fa-qs>
+              <!-- <ion-icon item-end name="ios-arrow-forward" style="color: grey;"></ion-icon> -->
+              <ion-icon item-end md="ios-arrow-forward" style="color: #BDBDBD;"></ion-icon>  
+    </button>
+  </ion-list>
+</ion-content>
