@@ -147,13 +147,13 @@ export class HomePage {
             <ion-card-content>
                 <ion-grid>
                     <ion-row>
-                        <ion-col text-center (click)="itemTapped($event, 'Salaried - Income Documentes')">
-                            <ion-img style="background-image: url(../assets/img/ic_salaried_documented.svg)"></ion-img>
+                        <ion-col text-center (click)="itemTapped($event, 'Income Documents')">
+                            <ion-img style="background-image: url(./assets/img/ic_salaried_documented.svg)"></ion-img>
                             <p class="labelCard">Income Documents</p>
                         </ion-col>
-                        <ion-col text-center (click)="itemTapped($event, 'Salaried - No income Documents')">
-                            <ion-img style="background-image: url(../assets/img/ic_salaried_non_documented.svg)"></ion-img>
-                            <p class="labelCard">No income Documents</p>
+                        <ion-col text-center (click)="itemTapped($event, 'No Income Documents')">
+                            <ion-img style="background-image: url(./assets/img/ic_salaried_non_documented.svg)"></ion-img>
+                            <p class="labelCard">No Income Documents</p>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
@@ -181,7 +181,7 @@ export class PopOverPage {
         case 'Income Documents':
           this.navCtrl.push(SubDocumentsHomeLoanPage, { category: 'Salaried - Income Documents' });
           break;
-        case 'No income Documents':
+        case 'No Income Documents':
           this.navCtrl.push(SubDocumentsHomeLoanPage, { category: 'Salaried - No Income Documents' });
           break;
       }

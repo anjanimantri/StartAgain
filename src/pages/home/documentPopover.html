@@ -1,6 +1,6 @@
-<ion-header>
-    <ion-navbar>
-      <ion-title style="text-align: start;">{{type}}</ion-title>
+ <ion-header>
+    <ion-navbar> 
+     <h6 style="color: white; margin-left: 10px;">{{type}}</h6>
     </ion-navbar>
   </ion-header>
     <ion-content>
@@ -8,13 +8,13 @@
             <ion-card-content>
                 <ion-grid>
                     <ion-row>
-                        <ion-col text-center (click)="itemTapped($event, 'Salaried - Income Documentes')">
-                            <ion-img style="background-image: url(../assets/img/ic_salaried_documented.svg)"></ion-img>
+                        <ion-col text-center (click)="itemTapped($event, 'Income Documents')">
+                            <ion-img style="background-image: url(./assets/img/ic_salaried_documented.svg)"></ion-img>
                             <p class="labelCard">Income Documents</p>
                         </ion-col>
-                        <ion-col text-center (click)="itemTapped($event, 'Salaried - No income Documents')">
-                            <ion-img style="background-image: url(../assets/img/ic_salaried_non_documented.svg)"></ion-img>
-                            <p class="labelCard">No income Documents</p>
+                        <ion-col text-center (click)="itemTapped($event, 'No Income Documents')">
+                            <ion-img style="background-image: url(./assets/img/ic_salaried_non_documented.svg)"></ion-img>
+                            <p class="labelCard">No Income Documents</p>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
