@@ -57,7 +57,7 @@ export class SubDocumentsHomeLoanPage {
 
   displayAccordingToCategory() {
     switch (this.category) {
-      case 'Salaried - Documented':
+      case 'Salaried - Income Documents':
         this.documentsList = [
         this.addressProof,
         this.bankStatement[0],
@@ -68,7 +68,7 @@ export class SubDocumentsHomeLoanPage {
         this.existingLoanDetails]
         break;
 
-      case 'Self Employed - Documented':
+      case 'Self Employed - Income Documents':
         this.documentsList = [
         this.addressProof,
         this.businessProof,
@@ -77,7 +77,7 @@ export class SubDocumentsHomeLoanPage {
         this.incomeDocuments[5],
         this.existingLoanDetails]
         break
-      case 'Salaried - No income Documents':
+      case 'Salaried - No Income Documents':
         this.documentsList = [
         this.addressProof,
         this.bankStatement[2],

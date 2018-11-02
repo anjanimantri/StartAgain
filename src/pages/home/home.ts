@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform, ViewController, PopoverController } from 'ionic-angular';
 import { FaqsHomeLoanPage } from '../faqs-home-loan/faqs-home-loan';
 import { PmayPage } from '../pmay/pmay';
 import { AskQuestionPage } from '../ask-question/ask-question';
@@ -33,7 +33,7 @@ import { EligibilityCriteriaPage } from '../eligibility-criteria/eligibility-cri
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
   }
 
   itemTapped(event, item) {
@@ -45,7 +45,7 @@ export class HomePage {
       case 'Loan Eligibility Calculator':
         this.navCtrl.push(LoanCalculatorPage);
         break;
-      case 'Advance Home Loan Calculator':
+      case 'Advance Loan Calculator':
         this.navCtrl.push(AdvanceHomeCalculatorPage);
         break;
       case 'Maximum Home Loan Calculator':
@@ -84,18 +84,6 @@ export class HomePage {
       case 'Compound Rate of Interest':
         this.navCtrl.push(RateCalculatorPage, { type: 'Compound' });
         break;
-      case 'Salaried - Documented':
-        this.navCtrl.push(SubDocumentsHomeLoanPage, { category: item });
-        break;
-      case 'Self Employed - Documented':
-        this.navCtrl.push(SubDocumentsHomeLoanPage, { category: item });
-        break;
-      case 'Salaried - No income Documents':
-        this.navCtrl.push(SubDocumentsHomeLoanPage, { category: item });
-        break;
-      case 'Self Employed - No Income Documents':
-        this.navCtrl.push(SubDocumentsHomeLoanPage, { category: item });
-        break;
       case 'NRI':
         this.navCtrl.push(SubDocumentsHomeLoanPage, { category: item });
         break;
@@ -111,7 +99,7 @@ export class HomePage {
         let model3 = new CapitalGainModel('54B', 'Individual or HUF Only', 'Agricultural Land used for 2 years for agriculture by assessee/parent. In case of HUF, by member of HUF (Both Long Term and Short Term Covered)', 'Purchase of New agricultural Land (Urban or Rural)', 'Within 2 years', 'Amt Invested or LONG TERM CAPITAL GAIN which ever is less', 'For Rural Land, No SHORT TERM CAPITAL GAIN is applicable. For Urban Land,                                         SHORT TERM CAPITAL GAIN is applicable. On Sale of New Asset (While Calculating Cost, Capital Gain exempt earlier will be reduced from Cost of Acquisition)')
         this.navCtrl.push(CapitalGainSubPage, { category: item, model: model3 });
         break;
-      case 'Sale of any asset including Residential House':
+      case 'Sale of any kind of asset':
         let model4 = new CapitalGainModel('54EC', 'Any assessee', 'Any LTCA', 'Specified Bonds of NHAI or RECL(These bonds have maturity of 3 years or more)', 'Within 6 months', 'Lower of 1) Amt Invested 2) 50 lacs 3) Capital Gains', 'On sale of securities or loan taken on securities within 3 years, LTCA exempt earlier will be taxable.')
         this.navCtrl.push(CapitalGainSubPage, { category: item, model: model4 });
         break;
@@ -130,6 +118,88 @@ export class HomePage {
       case 'Eligibility Criteria':
         this.navCtrl.push(EligibilityCriteriaPage);
         break;
+      case 'Salaried':
+        let popover = this.popoverCtrl.create(PopOverPage, { type: 'Salaried' });
+        popover.present({
+          ev: event
+        });
+        break;
+      case 'Self Employed':
+        let popover1 = this.popoverCtrl.create(PopOverPage, { type: 'Self Employed' });
+        popover1.present({
+          ev: event
+        });
+        break;
     }
+  }
+}
+
+
+@Component({
+  template: `
+  <ion-header>
+    <ion-navbar> 
+     <h6 style="color: white; margin-left: 10px;">{{type}}</h6>
+    </ion-navbar>
+  </ion-header>
+    <ion-content>
+        <ion-card>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col text-center (click)="itemTapped($event, 'Salaried - Income Documentes')">
+                            <ion-img style="background-image: url(../assets/img/ic_salaried_documented.svg)"></ion-img>
+                            <p class="labelCard">Income Documents</p>
+                        </ion-col>
+                        <ion-col text-center (click)="itemTapped($event, 'Salaried - No income Documents')">
+                            <ion-img style="background-image: url(../assets/img/ic_salaried_non_documented.svg)"></ion-img>
+                            <p class="labelCard">No income Documents</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </ion-content>
+`
+})
+
+export class PopOverPage {
+  type: string;
+  constructor(
+    public platform: Platform,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public navCtrl: NavController
+  ) {
+    this.type = navParams.get('type')
+  }
+
+  itemTapped(event, item) {
+
+    if (this.type == "Salaried") {
+      switch (item) {
+        case 'Income Documents':
+          this.navCtrl.push(SubDocumentsHomeLoanPage, { category: 'Salaried - Income Documents' });
+          break;
+        case 'No income Documents':
+          this.navCtrl.push(SubDocumentsHomeLoanPage, { category: 'Salaried - No Income Documents' });
+          break;
+      }
+    }
+
+    if (this.type == "Self Employed") {
+      switch (item) {
+        case 'Income Documents':
+          this.navCtrl.push(SubDocumentsHomeLoanPage, { category: 'Self Employed - Income Documents' });
+          break;
+        case 'No Income Documents':
+          this.navCtrl.push(SubDocumentsHomeLoanPage, { category: 'Self Employed - No Income Documents' });
+          break;
+      }
+    }
+  }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 }

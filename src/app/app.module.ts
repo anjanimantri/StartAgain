@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 import { DecimalPipe } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { Network } from '@ionic-native/network';
-
+// import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { PaymentSchedulePage } from '../pages/paymentSchedule/paymentSchedule';
 import { PaymentSummaryPage } from '../pages/paymentSummary/paymentSummary';
 import { LoanDetailsPage } from '../pages/loanDetails/loanDetails';
@@ -33,6 +33,7 @@ import { CapitalGainSubPage } from '../pages/capital-gain-sub/capital-gain-sub';
 import { AskQuestionPage } from '../pages/ask-question/ask-question';
 import { EmiComparePage } from '../pages/emi-compare/emi-compare';
 import { EligibilityCriteriaPage } from '../pages/eligibility-criteria/eligibility-criteria';
+import { PopOverPage } from '../pages/home/home';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { EligibilityCriteriaPage } from '../pages/eligibility-criteria/eligibili
     CapitalGainSubPage,
     AskQuestionPage,
     EmiComparePage,
-    EligibilityCriteriaPage
+    EligibilityCriteriaPage,
+    PopOverPage
   ],
   imports: [
     BrowserModule,
@@ -93,13 +95,15 @@ import { EligibilityCriteriaPage } from '../pages/eligibility-criteria/eligibili
     CapitalGainSubPage,
     AskQuestionPage,
     EmiComparePage,
-    EligibilityCriteriaPage
+    EligibilityCriteriaPage,
+    PopOverPage
   ],
 
   providers: [
     StatusBar,
     DecimalPipe,
     SplashScreen,
+    // SQLite,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Network
   ]

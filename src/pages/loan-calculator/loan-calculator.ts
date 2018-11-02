@@ -62,7 +62,7 @@ export class LoanCalculatorPage {
       } else {
         this.loanTenureInMonths = this.loanTenure;
       }
-      this.EMI = (this.montlyIncome * 0.6) - this.monthlyEMI;
+      this.EMI = (this.montlyIncome * 0.5) - this.monthlyEMI;
       this.loanAmount = (this.EMI * (Math.pow((1 + this.rateOfInterest / 1200), this.loanTenureInMonths) - 1)) / ((this.rateOfInterest / 1200) * (Math.pow((1 + this.rateOfInterest / 1200), this.loanTenureInMonths)));
       this.EMI = Math.round(this.EMI);
       this.loanAmount = Math.round(this.loanAmount);

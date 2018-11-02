@@ -20,6 +20,7 @@ declare var Connection: any;
 export class AskQuestionPage {
 
   name: string;
+  city: string;
   mobile: string = "";
   email: string = "";
   question: string = "";
@@ -56,6 +57,7 @@ export class AskQuestionPage {
     if (!this.isQuestion) {
       let vQuestion = this.validateQuestion()
       body = "Name: " + this.name + "\n" +
+        "City: " + this.city + "\n" +
         "Mobile: " + this.mobile + "\n" +
         "Email Id: " + this.email + "\n" +
         "Question: " + this.question + "\n"
@@ -64,6 +66,7 @@ export class AskQuestionPage {
       }
     } else {
       body = "Name: " + this.name + "\n" +
+        "City: " + this.city + "\n" +
         "Mobile: " + this.mobile + "\n" +
         "Email Id: " + this.email + "\n"
       if (vEmail && vMobile) {

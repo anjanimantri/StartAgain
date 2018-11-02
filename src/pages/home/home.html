@@ -1,14 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <!-- <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button> -->
     <ion-title>Suvidha</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content no-padding>
-   <h1 class="labelHeading">Home Loan Calculator</h1> 
+  <h1 class="labelHeading">Home Loan Calculator</h1>
   <ion-card class="transpBackground">
     <ion-card-content>
       <ion-grid no-padding>
@@ -21,9 +18,9 @@
             <ion-img class="appname_ic_loan_eligibility_calculator"></ion-img>
             <p class="labelCard">Loan Eligibility Calculator</p>
           </ion-col>
-          <ion-col text-center (click)="itemTapped($event, 'Advance Home Loan Calculator')">
+          <ion-col text-center (click)="itemTapped($event, 'Advance Loan Calculator')">
             <ion-img class="appname_ic_advance_home_loan_calculator"></ion-img>
-            <p class="labelCard">Advance Home Loan Calculator</p>
+            <p class="labelCard">Advance Loan Calculator</p>
           </ion-col>
           <ion-col text-center (click)="itemTapped($event, 'EMI Comparison')">
             <ion-img class="appname_ic_emi_compare"></ion-img>
@@ -116,61 +113,29 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col>
-        <h1 class="labelCardHeading">Salaried :</h1>
         <ion-card class="transpBackground">
           <ion-card-content>
             <ion-grid no-padding>
               <ion-row>
-                <ion-col text-center (click)="itemTapped($event, 'Salaried - Documented')">
-                  <ion-img class="appname_ic_salaried_documented"></ion-img>
-                  <p class="labelCard">Documented</p>
+                <ion-col text-center (click)="itemTapped($event, 'Salaried')">
+                  <ion-img class="appname_ic_salaried"></ion-img>
+                  <p class="labelCard">Salaried</p>
                 </ion-col>
-                <ion-col text-center (click)="itemTapped($event, 'Salaried - No income Documents')">
-                  <ion-img class="appname_ic_salaried_non_documented"></ion-img>
-                  <p class="labelCard">No income Documents</p>
+                <ion-col text-center (click)="itemTapped($event, 'Self Employed')">
+                  <ion-img class="appname_ic_self_employed"></ion-img>
+                  <p class="labelCard">Self Employed</p>
+                </ion-col>
+                <ion-col text-center (click)="itemTapped($event, 'NRI')">
+                  <ion-img class="appname_ic_nri"></ion-img>
+                  <p class="labelCard">NRI</p>
+                </ion-col>
+                <ion-col>
                 </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col>
-        <h1 class="labelCardHeading">Self Employed :</h1>
-        <ion-card class="transpBackground">
-          <ion-card-content>
-            <ion-grid no-padding>
-              <ion-row>
-                <ion-col text-center (click)="itemTapped($event, 'Self Employed - Documented')">
-                  <ion-img class="appname_ic_self_employed_documented"></ion-img>
-                  <p class="labelCard">Documented</p>
-                </ion-col>
-                <ion-col text-center (click)="itemTapped($event, 'Self Employed - No Income Documents')">
-                  <ion-img class="appname_ic_self_employed_non_documented"></ion-img>
-                  <p class="labelCard">No Income Documents</p>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-card class="transpBackground">
-        <ion-card-content>
-          <ion-row>
-            <ion-col text-center (click)="itemTapped($event, 'NRI')">
-              <ion-img class="appname_ic_nri"></ion-img>
-              <p class="labelCard">NRI</p>
-            </ion-col>
-            <ion-col>
-            </ion-col>
-            <ion-col>
-            </ion-col>
-            <ion-col>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
     </ion-row>
   </ion-grid>
 
@@ -191,9 +156,9 @@
             <ion-img class="appname_ic_sale_of_agriculture_land"></ion-img>
             <p class="labelCard">Sale of agriculture land</p>
           </ion-col>
-          <ion-col text-center (click)="itemTapped($event, 'Sale of any asset including Residential House')">
+          <ion-col text-center (click)="itemTapped($event, 'Sale of any kind of asset')">
             <ion-img class="appname_ic_sale_of_any_asset"></ion-img>
-            <p class="labelCard">Sale of any asset including Residential House</p>
+            <p class="labelCard">Sale of any kind of asset</p>
           </ion-col>
         </ion-row>
       </ion-grid>

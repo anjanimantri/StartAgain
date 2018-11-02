@@ -68,7 +68,7 @@ ion-img {
         background-image: url(../assets/img/ic_sale_of_residential_house.svg);
     }
     &[class*="appname_ic_nri"] {
-        background-image: url(../assets/img/ic_nri.svg);
+        background-image: url(../assets/img/ic_document_list.svg);
     }
     &[class*="appname_ic_self_employed_non_documented"] {
         background-image: url(../assets/img/ic_self_employed_non_documented.svg);
@@ -121,7 +121,7 @@ ion-img {
     &[class*="appname_ic_loan_eligibility_calculator"] {
         background-image: url(../assets/img/ic_loan_eligibility_calculator.svg);
     }
-     &[class*="appname_ic_advance_home_loan_calculator"] {
+    &[class*="appname_ic_advance_home_loan_calculator"] {
         background-image: url(../assets/img/ic_advance_home_loan_calculator.svg);
     }
     &[class*="appname_ic_emi_compare"] {
@@ -129,6 +129,12 @@ ion-img {
     }
     &[class*="appname_ic_eligibility_criteria"] {
         background-image: url(../assets/img/ic_eligibility_criteria.svg);
+    }
+    &[class*="appname_ic_salaried"] {
+        background-image: url(../assets/img/ic_salaried.svg);
+    }
+    &[class*="appname_ic_self_employed"] {
+        background-image: url(../assets/img/ic_selfemployed.svg);
     }
 }
 }
