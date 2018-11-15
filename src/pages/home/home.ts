@@ -87,19 +87,19 @@ export class HomePage {
       case 'NRI':
         this.navCtrl.push(SubDocumentsHomeLoanPage, { category: item });
         break;
-      case 'Sale of residential house':
+      case 'Residential House':
         let model1 = new CapitalGainModel('54', 'Individual or HUF Only', 'Residential House (Long Term Capital Asset i.e 3 years or more period of holding)', 'New Residential House(Only 1 Residential House is allowed)', 'If Purchased One year before or 2 years After or If constructed within 3 years from the date of sale', 'Amount Invested or LONG TERM CAPITAL GAIN which ever is less', 'SHORT TERM CAPITAL GAIN on Sale of New Asset (While Calculating Cost, Capital Gain exempt earlier will be reduced from Cost of acquisition');
         this.navCtrl.push(CapitalGainSubPage, { category: item, model: model1 });
         break;
-      case 'All assets except residential house':
+      case 'All Assets Except Residential House':
         let model2 = new CapitalGainModel('54F', 'Individual or HUF Only', 'Any LONG TERM CAPITAL ASSET except Residential house', 'New Residential House(Only 1 Residential House is allowed)', 'If Purchased One year before or 2 years After or If constructed within 3 years from the date of sale', 'Capital Gains (X) Amt Invested/net Consideration received. Deduction cannot be more than amount of capital gains', 'SHORT TERM CAPITAL GAIN On  Sale of New Asset + LONG TERM CAPITAL GAIN which was exempt earlier also taxable');
         this.navCtrl.push(CapitalGainSubPage, { category: item, model: model2 });
         break;
-      case 'Sale of agriculture land':
+      case 'Agriculture Land':
         let model3 = new CapitalGainModel('54B', 'Individual or HUF Only', 'Agricultural Land used for 2 years for agriculture by assessee/parent. In case of HUF, by member of HUF (Both Long Term and Short Term Covered)', 'Purchase of New agricultural Land (Urban or Rural)', 'Within 2 years', 'Amt Invested or LONG TERM CAPITAL GAIN which ever is less', 'For Rural Land, No SHORT TERM CAPITAL GAIN is applicable. For Urban Land,                                         SHORT TERM CAPITAL GAIN is applicable. On Sale of New Asset (While Calculating Cost, Capital Gain exempt earlier will be reduced from Cost of Acquisition)')
         this.navCtrl.push(CapitalGainSubPage, { category: item, model: model3 });
         break;
-      case 'Sale of any kind of asset':
+      case 'All Assets Including Residential House':
         let model4 = new CapitalGainModel('54EC', 'Any assessee', 'Any LTCA', 'Specified Bonds of NHAI or RECL(These bonds have maturity of 3 years or more)', 'Within 6 months', 'Lower of 1) Amt Invested 2) 50 lacs 3) Capital Gains', 'On sale of securities or loan taken on securities within 3 years, LTCA exempt earlier will be taxable.')
         this.navCtrl.push(CapitalGainSubPage, { category: item, model: model4 });
         break;
@@ -139,7 +139,7 @@ export class HomePage {
   template: `
   <ion-header>
     <ion-navbar> 
-     <h6 style="color: white; margin-left: 10px;">{{type}}</h6>
+     <h6 style="color: white; margin-left: 10px;font-weight: bold;">{{type}}</h6>
     </ion-navbar>
   </ion-header>
     <ion-content>
