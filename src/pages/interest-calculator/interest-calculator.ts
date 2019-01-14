@@ -57,13 +57,13 @@ export class InterestCalculatorPage {
       }
       else if (this.type == 'Compound') {
         if (this.frequency == 'yearly') {
-          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 100), this.years));
+          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 100), this.years)) - this.principal;
         } else if (this.frequency == 'halfYearly') {
-          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 200), (this.years * 2)));
+          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 200), (this.years * 2))) - this.principal;
         } else if (this.frequency == 'quaterly') {
-          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 400), (this.years * 4)));
+          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 400), (this.years * 4))) - this.principal;
         } else {
-          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 1200), (this.years * 12)));
+          this.interest = Math.round(this.principal * Math.pow((1 + this.rate / 1200), (this.years * 12))) - this.principal;
         }
         this.total = (this.principal * 1) / 1 + this.interest;
         this.isCalculate = false;

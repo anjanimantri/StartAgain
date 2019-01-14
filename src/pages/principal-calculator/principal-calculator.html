@@ -10,7 +10,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label floating class="required">Interest (₹)</ion-label>
+      <ion-label floating class="required">{{title}} (₹)</ion-label>
       <ion-input [(ngModel)]="interestFormatted" (change)='onChangeInterest($event.target.value)'></ion-input>
     </ion-item>
 
@@ -48,9 +48,9 @@
       <ion-label item-end color="primary" class="alignme">₹ {{principal | number:'1.2-2'}}</ion-label>
     </ion-item>
 
-    <ion-item no-lines color=light>
+    <!-- <ion-item no-lines color=light>
       <ion-label color="primary" item-start text-wrap>Total Amount :</ion-label>
       <ion-label item-end color="primary" class="alignme">₹ {{total | number:'1.2-2'}}</ion-label>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 </ion-content>

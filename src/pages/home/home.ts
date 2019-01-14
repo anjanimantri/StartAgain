@@ -151,7 +151,7 @@ export class HomePage {
                             <ion-img style="background-image: url(./assets/img/ic_salaried_documented.svg)"></ion-img>
                             <p class="labelCard">Income Documents</p>
                         </ion-col>
-                        <ion-col text-center (click)="itemTapped($event, 'No Income Documents')">
+                        <ion-col text-center (click)="itemTapped($event, 'No Income Documents')" style="margin-right: 10px;">
                             <ion-img style="background-image: url(./assets/img/ic_salaried_non_documented.svg)"></ion-img>
                             <p class="labelCard">No Income Documents</p>
                         </ion-col>

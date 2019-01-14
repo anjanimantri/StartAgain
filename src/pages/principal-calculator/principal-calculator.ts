@@ -27,13 +27,19 @@ export class PrincipalCalculatorPage {
   total: number;
   tenure: string;
   frequency: string;
+  title: string;
 
   constructor(public decimalPipe: DecimalPipe, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.type = navParams.get('type');
-    if (this.type == 'Compound')
+    if (this.type == 'Compound') {
       this.isCompound = false;
-    else
+      this.title = "Compound Amount"
+    }
+    else {
       this.isCompound = true;
+      this.title = "Interest"
+    }
+
   }
 
   onChangeInterest(evt) {
